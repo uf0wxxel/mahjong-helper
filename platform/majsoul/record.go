@@ -33,7 +33,8 @@ func genReqLogin(username string, password string) (*lq.ReqLogin, error) {
 	// randomKey 最好是个固定值
 	randomKey, ok := os.LookupEnv("RANDOM_KEY")
 	if !ok {
-		randomKey = uuid.NewV4().String()
+		temp, _ := uuid.NewV4()
+		randomKey = temp.String()
 	}
 
 	version, err := tool.GetMajsoulVersion(tool.ApiGetVersionZH)
