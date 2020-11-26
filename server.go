@@ -499,6 +499,7 @@ func runServer(isHTTPS bool, port int) (err error) {
 		return
 	}
 	e.Logger.SetOutput(logFile)*/
+	e.Logger.SetOutput(nil)
 
 	e.Logger.Info("============================================================================================")
 	e.Logger.Info("服务启动")
