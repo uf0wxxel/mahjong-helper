@@ -487,7 +487,8 @@ func runServer(isHTTPS bool, port int) (err error) {
 	e.StdLogger = stdLog.New(ioutil.Discard, "", 0)
 
 	// 默认是 log.ERROR
-	e.Logger.SetLevel(log.INFO)
+	//e.Logger.SetLevel(log.INFO)
+	e.Logger.SetLevel(log.ERROR)
 
 	// 设置日志输出到 log/gamedata-xxx.log
 	/*filePath, err := newLogFilePath()
@@ -499,7 +500,6 @@ func runServer(isHTTPS bool, port int) (err error) {
 		return
 	}
 	e.Logger.SetOutput(logFile)*/
-	e.Logger.SetOutput(nil)
 
 	e.Logger.Info("============================================================================================")
 	e.Logger.Info("服务启动")
