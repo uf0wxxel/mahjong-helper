@@ -39,7 +39,7 @@ jobs:
         pwd
         echo $(go env GOPATH)/bin
         ls -l
-        ls -l $(go env GOPATH)/bin
+        ls -lR $(go env GOPATH)/bin
 
     - name: Artifact
       uses: actions/upload-artifact@v2
