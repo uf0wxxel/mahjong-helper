@@ -35,12 +35,12 @@ jobs:
     - name: Environment
       run: |
         pwd
-        echo $GOPATH
+        echo $(go env GOPATH)/bin
         ls -l
-        ls -l $GOPATH
+        ls -l $(go env GOPATH)/bin
 
     - name: Artifact
       uses: actions/upload-artifact@v2
       with:
         name: artifact
-        path: ./*.exe
+        path: $(go env GOPATH)/bin/*.exe
