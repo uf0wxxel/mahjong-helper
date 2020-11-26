@@ -490,7 +490,7 @@ func runServer(isHTTPS bool, port int) (err error) {
 	e.Logger.SetLevel(log.INFO)
 
 	// 设置日志输出到 log/gamedata-xxx.log
-	filePath, err := newLogFilePath()
+	/*filePath, err := newLogFilePath()
 	if err != nil {
 		return
 	}
@@ -498,7 +498,7 @@ func runServer(isHTTPS bool, port int) (err error) {
 	if err != nil {
 		return
 	}
-	e.Logger.SetOutput(logFile)
+	e.Logger.SetOutput(logFile)*/
 
 	e.Logger.Info("============================================================================================")
 	e.Logger.Info("服务启动")
