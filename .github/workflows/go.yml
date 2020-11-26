@@ -30,7 +30,14 @@ jobs:
         fi
 
     - name: Build
-      run: GOOS=windows GOARCH=amd64 go build ./main.go
+      run: GOOS=windows GOARCH=amd64 go build -v ./...
+    
+    - name: Environment
+      run: |
+        pwd
+        echo $GOPATH
+        ls -l
+        ls -l $GOPATH
 
     - name: Artifact
       uses: actions/upload-artifact@v2
