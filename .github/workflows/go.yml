@@ -30,7 +30,7 @@ jobs:
         fi
 
     - name: Build
-      run: GOOS=windows GOARCH=amd64 go build -v ./...
+      run: GOOS=windows GOARCH=amd64 go install -v ./...
     
     - name: Environment
       run: |
@@ -43,4 +43,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: artifact
-        path: $(go env GOPATH)/bin/*.exe
+        path: $(go env GOPATH)/bin/
