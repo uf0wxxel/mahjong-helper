@@ -81,7 +81,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: artifact_linux_amd64
-        path: /home/runner/go/bin/linux_amd64/*
+        path: /home/runner/go/bin/mahjong-helper
 
     - name: Artifact linux_arm
       uses: actions/upload-artifact@v2
