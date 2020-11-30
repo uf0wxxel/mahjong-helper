@@ -33,6 +33,12 @@ jobs:
       run: |
         GOOS=windows GOARCH=386 go install -v ./...
         GOOS=windows GOARCH=amd64 go install -v ./...
+        GOOS=darwin GOARCH=386 go install -v ./...
+        GOOS=darwin GOARCH=amd64 go install -v ./...
+        GOOS=linux GOARCH=386 go install -v ./...
+        GOOS=linux GOARCH=amd64 go install -v ./...
+        GOOS=linux GOARCH=arm go install -v ./...
+        GOOS=linux GOARCH=arm64 go install -v ./...
     
     - name: Environment
       run: |
@@ -41,14 +47,50 @@ jobs:
         ls -l
         ls -lR $(go env GOPATH)/bin
 
-    - name: Artifact 386
+    - name: Artifact windows_386
       uses: actions/upload-artifact@v2
       with:
-        name: artifact_386
-        path: /home/runner/go/bin/windows_386/*.exe
+        name: artifact_windows_386
+        path: /home/runner/go/bin/windows_386/*
 
-    - name: Artifact amd64
+    - name: Artifact windows_amd64
       uses: actions/upload-artifact@v2
       with:
-        name: artifact_amd64
-        path: /home/runner/go/bin/windows_amd64/*.exe
+        name: artifact_windows_amd64
+        path: /home/runner/go/bin/windows_amd64/*
+
+    - name: Artifact darwin_386
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_darwin_386
+        path: /home/runner/go/bin/darwin_386/*
+
+    - name: Artifact darwin_amd64
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_darwin_amd64
+        path: /home/runner/go/bin/darwin_amd64/*
+
+    - name: Artifact linux_386
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_linux_386
+        path: /home/runner/go/bin/linux_386/*
+
+    - name: Artifact linux_amd64
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_linux_amd64
+        path: /home/runner/go/bin/linux_amd64/*
+
+    - name: Artifact linux_arm
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_linux_arm
+        path: /home/runner/go/bin/linux_arm/*
+
+    - name: Artifact linux_arm64
+      uses: actions/upload-artifact@v2
+      with:
+        name: artifact_linux_arm64
+        path: /home/runner/go/bin/linux_arm64/*
