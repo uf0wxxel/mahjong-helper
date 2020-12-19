@@ -25,6 +25,10 @@ var (
 	showAllYakuTypes       bool
 
 	humanDoraTiles string
+	roundWindTile  string
+	selfWindTile   string
+	discardOTiles  string
+	discardMTiles  string
 
 	port int
 )
@@ -47,6 +51,10 @@ func init() {
 	flag.BoolVar(&showAllYakuTypes, "y", false, "同 -yaku")
 	flag.StringVar(&humanDoraTiles, "dora", "", "指定哪些牌是宝牌")
 	flag.StringVar(&humanDoraTiles, "d", "", "同 -dora")
+	flag.StringVar(&roundWindTile, "rw", "", "(分析/交互模式)场风[1z]")
+	flag.StringVar(&selfWindTile, "sw", "", "(分析/交互模式)自风[1z]")
+	flag.StringVar(&discardOTiles, "do", "", "(分析/交互模式)别家已切牌")
+	flag.StringVar(&discardMTiles, "dm", "", "(分析/交互模式)自家已切牌")
 	flag.IntVar(&port, "port", 12121, "指定服务端口")
 	flag.IntVar(&port, "p", 12121, "同 -port")
 }
@@ -120,6 +128,10 @@ func main() {
 	humanTilesInfo := &model.HumanTilesInfo{
 		HumanTiles:     humanTiles,
 		HumanDoraTiles: humanDoraTiles,
+		RoundWindTile:  roundWindTile,
+		SelfWindTile:   selfWindTile,
+		DiscardOTiles:  discardOTiles,
+		DiscardMTiles:  discardMTiles,
 	}
 
 	var err error

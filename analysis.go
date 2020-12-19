@@ -216,6 +216,48 @@ func analysisHumanTiles(humanTilesInfo *model.HumanTilesInfo) (playerInfo *model
 	playerInfo = model.NewSimplePlayerInfo(tiles34, melds)
 	playerInfo.NumRedFives = numRedFives
 
+	if humanTilesInfo.RoundWindTile != "" {
+		playerInfo.RoundWindTile, _, err = util.StrToTile34(humanTilesInfo.RoundWindTile)
+		if err != nil {
+			return
+		}
+	}
+
+	if humanTilesInfo.SelfWindTile != "" {
+		playerInfo.SelfWindTile, _, err = util.StrToTile34(humanTilesInfo.SelfWindTile)
+		if err != nil {
+			return
+		}
+	}
+
+	playerInfo.IsParent = playerInfo.SelfWindTile == 27
+
+	if humanTilesInfo.DiscardOTiles != "" {
+		discardByOthers34, _, err = util.StrToTiles34(humanTilesInfo.DiscardOTiles)
+		if err != nil {
+			return
+		}
+		for i, count := range discardByOthers34 {
+			playerInfo.LeftTiles34[i] -= count
+		}
+	}
+
+	if humanTilesInfo.DiscardMTiles != "" {
+		playerInfo.DiscardTiles, _, err = util.StrToTiles(humanTilesInfo.DiscardMTiles)
+		if err != nil {
+			return
+		}
+		for _, tile := range playerInfo.DiscardTiles {
+			playerInfo.LeftTiles34[tile]--
+		}
+	}
+
+	for _, count := range playerInfo.LeftTiles34 {
+		if count < 0 {
+			return nil, fmt.Errorf("输入错误: %s 剩余 %d 张", util.Tile34ToStr, count)
+		}
+	}
+
 	if humanTilesInfo.HumanDoraTiles != "" {
 		playerInfo.DoraTiles, _, err = util.StrToTiles(humanTilesInfo.HumanDoraTiles)
 		if err != nil {

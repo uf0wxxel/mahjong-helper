@@ -14,6 +14,11 @@ type HumanTilesInfo struct {
 
 	HumanMelds      []string // 从 HumanTiles 解析出来的副露
 	HumanTargetTile string   // 从 HumanTiles 解析出来的被鸣的牌
+
+	RoundWindTile  string
+	SelfWindTile   string
+	DiscardOTiles  string
+	DiscardMTiles  string
 }
 
 func NewSimpleHumanTilesInfo(humanTiles string) *HumanTilesInfo {
