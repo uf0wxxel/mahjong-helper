@@ -233,9 +233,9 @@ func analysisHumanTiles(humanTilesInfo *model.HumanTilesInfo) (playerInfo *model
 	playerInfo.IsParent = playerInfo.SelfWindTile == 27
 
 	if humanTilesInfo.DiscardOTiles != "" {
-		discardByOthers34, _, err := util.StrToTiles34(humanTilesInfo.DiscardOTiles)
-		if err != nil {
-			return
+		discardByOthers34, _, er := util.StrToTiles34(humanTilesInfo.DiscardOTiles)
+		if er != nil {
+			return nil, er
 		}
 		for i, count := range discardByOthers34 {
 			playerInfo.LeftTiles34[i] -= count
