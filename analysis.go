@@ -252,9 +252,9 @@ func analysisHumanTiles(humanTilesInfo *model.HumanTilesInfo) (playerInfo *model
 		}
 	}
 
-	for _, count := range playerInfo.LeftTiles34 {
+	for i, count := range playerInfo.LeftTiles34 {
 		if count < 0 {
-			return nil, fmt.Errorf("输入错误: %s 剩余 %d 张", util.Tile34ToStr, count)
+			return nil, fmt.Errorf("输入错误: %s 剩余 %d 张", util.Tile34ToStr(i), count)
 		}
 	}
 
