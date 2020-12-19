@@ -233,7 +233,7 @@ func analysisHumanTiles(humanTilesInfo *model.HumanTilesInfo) (playerInfo *model
 	playerInfo.IsParent = playerInfo.SelfWindTile == 27
 
 	if humanTilesInfo.DiscardOTiles != "" {
-		discardByOthers34, _, err = util.StrToTiles34(humanTilesInfo.DiscardOTiles)
+		discardByOthers34, _, err := util.StrToTiles34(humanTilesInfo.DiscardOTiles)
 		if err != nil {
 			return
 		}
