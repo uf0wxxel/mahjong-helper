@@ -1,21 +1,17 @@
 # 日本麻将助手
 
-
 ## 主要功能
 
 - 对战时自动分析手牌，综合进张、打点等，给出推荐舍牌
-- 听牌时显示役种和期望打点，一向听和两向听时显示可能的役种
 - 有人立直或多副露时，显示各张牌的危险度
 - 记录他家手切摸切
-- 助手带你看牌谱，推荐每一打的进攻和防守选择（雀魂√ | 天凤开发中）
+- 助手带你看牌谱，推荐每一打的进攻和防守选择
 - 支持四人麻将和三人麻将
-
-详见后面的图文[示例](#示例)
 
 ### 支持平台
 
-- 雀魂网页版（[国际中文服](https://game.maj-soul.com/1/)√ | [日服](https://game.mahjongsoul.com)√ | [国际服](https://mahjongsoul.game.yo-star.com)√）
-- 天凤 [Web 版](https://tenhou.net/3/)
+- 雀魂网页版（[国际中文服](https://game.maj-soul.com/1/) | [日服](https://game.mahjongsoul.com) | [国际服](https://mahjongsoul.game.yo-star.com)）
+- 天凤（[Web](https://tenhou.net/3/) | [4K](https://tenhou.net/4/)）
 
 
 ## 导航
@@ -35,9 +31,9 @@
 
 分下面几步：
 
-1. 前往 [releases](https://github.com/EndlessCheng/mahjong-helper/releases/latest) 页面下载助手。注意需要解压后才能正常运行。
+1. 前往 [releases](https://github.com/EndlessCheng/mahjong-helper/releases/latest) 页面下载助手。解压到本地后打开。
 
-2. 雀魂需要浏览器允许本地证书，在浏览器地址栏中输入 `chrome://flags/#allow-insecure-localhost`，然后点击高亮那一项的「启用」按钮。该功能仅限基于 Chrome 内核开发的浏览器。
+2. 雀魂需要浏览器允许本地证书，在浏览器地址栏中输入 `chrome://flags/#allow-insecure-localhost`，然后点击高亮那一项的「启用」按钮（[若没有该项见此](https://github.com/EndlessCheng/mahjong-helper/issues/108)）。该功能仅限基于 Chrome 内核开发的浏览器。
    
    （不同浏览器/版本的描述可能不一样，如果打开的页面是英文的话，高亮的就是 `Allow invalid certificates for resources loaded from localhost`，把它的 Disabled 改成 Enabled）
    
@@ -49,9 +45,9 @@
    
    安装好扩展后点进该扩展的`管理`界面，点击`导入和导出`，在下载规则中填入 `https://endlesscheng.gitee.io/public/mahjong-helper.json`，点击右侧的下载按钮，然后点击下方的`保存`。
 
-安装完成。请重新载入游戏页面。（若您在安装完成后助手仍然无反应，可尝试安装 [CORS Unblock](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/related) 以解决此问题，见 [#57](https://github.com/EndlessCheng/mahjong-helper/issues/57)）
+4. 如果您的浏览器之前打开过雀魂网页，需要清除缓存：打开雀魂网页，按下 F12，右键地址栏左侧的刷新按钮，选择「清空缓存并进行硬刷新」。这一操作只需要首次使用时做一次。如遇问题，请参考 [#104](https://github.com/EndlessCheng/mahjong-helper/issues/104)。
 
-在使用本助手前，建议先看一下本页面下方的[示例](#示例)。
+#### 安装完成！在使用助手前，请先阅读本页面下方的[示例](#示例)，以了解助手输出信息的含义。
 
 ### 从源码安装此助手
 
